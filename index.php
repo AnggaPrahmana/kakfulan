@@ -20,16 +20,15 @@ $pesan_datang = $message['text'];
 if($message['type']=='sticker')
 {	
 	$balas = array(
-							'UserID' => $profil->userId,	
-                                                        'replyToken' => $replyToken,							
-							'messages' => array(
-								array(
-										'type' => 'text',									
-										'text' => 'Terima Kasih Stikernya.'										
-									
-									)
-							)
-						);
+		'UserID' => $profil->userId,
+									'replyToken' => $replyToken,														
+		'messages' => array(
+			array(
+					'type' => 'text',					
+					'text' => 'Oi '.$profil->displayName.' Belike sticker aku ni'
+				)
+		)
+	);
 						
 }
 else
@@ -61,7 +60,7 @@ if($message['type']=='text'){
 							'messages' => array(
 								array(
 										'type' => 'text',					
-										'text' => 'Mohon Gunakan Bahasa Indonesia Yang Benar :D.'
+										'text' => 'Ngomong apo kau ni'
 									)
 							)
 						);
