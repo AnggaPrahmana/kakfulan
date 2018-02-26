@@ -62,14 +62,11 @@ if($message['type']=='text'){
 							'messages' => array(
 								array(
 										'type' => 'text',					
-										'text' => 'Maaf '.$profil->displayName.' Server Kami Sedang Sibuk Sekarang.'
+										'text' => 'Hai '.$profil->displayName
 									)
 							)
 						);
 				
-	}
-	else if($url['result']=='oi'){
-		$balas = 'apo'
 	}
 
 	else{
