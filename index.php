@@ -41,14 +41,14 @@ $url=json_decode($json_data,1);
 $diterima = $url['response'];
 if($message['type']=='text'){
 
-	if($url['result']=='oi'){
+	if($message['type'] =='oi'){
 		$balas = array(
 			'UserID' => $profil->userId,
 										'replyToken' => $replyToken,														
 			'messages' => array(
 				array(
 						'type' => 'text',					
-						'text' => $profil->displayName.'ngapo manggil'
+						'text' => $profil->displayName.'ngapo manggil aku?'
 					)
 			)
 		);
