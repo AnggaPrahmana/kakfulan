@@ -40,6 +40,20 @@ $json_data = file_get_contents($url);
 $url=json_decode($json_data,1);
 $diterima = $url['response'];
 if($message['type']=='text'){
+
+	if($url['result']=='oi'){
+		$balas = array(
+			'UserID' => $profil->userId,
+										'replyToken' => $replyToken,														
+			'messages' => array(
+				array(
+						'type' => 'text',					
+						'text' => $profil->displayName.'ngapo manggil'
+					)
+			)
+		);
+	}
+
 	if($url['result'] == 404){
 		$balas = array(
 							'UserID' => $profil->userId,	
@@ -67,18 +81,6 @@ if($message['type']=='text'){
 							)
 						);
 				
-	}
-	else if($url['result']=='oi'){
-		$balas = array(
-			'UserID' => $profil->userId,
-										'replyToken' => $replyToken,														
-			'messages' => array(
-				array(
-						'type' => 'text',					
-						'text' => $profil->displayName.'ngapo manggil'
-					)
-			)
-		);
 	}
 
 	else{
