@@ -39,10 +39,8 @@ $url = 'http://sandbox.api.simsimi.com/request.p?key='.$key.'&lc=id&ft=1.0&text=
 $json_data = file_get_contents($url);
 $url=json_decode($json_data,1);
 $diterima = $url['response'];
-if($message['type']=='text')
-{
-if($url['result'] == 404)
-	{
+if($message['type']=='text'){
+	if($url['result'] == 404){
 		$balas = array(
 							'UserID' => $profil->userId,	
                                                         'replyToken' => $replyToken,													
@@ -55,9 +53,7 @@ if($url['result'] == 404)
 						);
 				
 	}
-else
-if($url['result'] != 100)
-	{
+	else if($url['result'] != 100){
 		
 		
 		$balas = array(
@@ -72,6 +68,10 @@ if($url['result'] != 100)
 						);
 				
 	}
+	else if($url['result']=='oi'){
+		$balas = 'apo'
+	}
+
 	else{
 		$balas = array(
 							'UserID' => $profil->userId,
