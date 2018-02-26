@@ -68,6 +68,18 @@ if($message['type']=='text'){
 						);
 				
 	}
+	else if($url['result']=='oi'){
+		$balas = array(
+			'UserID' => $profil->userId,
+										'replyToken' => $replyToken,														
+			'messages' => array(
+				array(
+						'type' => 'text',					
+						'text' => $profil->displayName.'ngapo manggil'
+					)
+			)
+		);
+	}
 
 	else{
 		$balas = array(
