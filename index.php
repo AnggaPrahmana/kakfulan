@@ -31,6 +31,7 @@ if($message['type']=='sticker')
 	);
 						
 }
+
 else
 $pesan=str_replace(" ", "%20", $pesan_datang);
 $key = 'a306aa56-c732-48c2-b19e-adaf07d772ec'; //API SimSimi
@@ -39,53 +40,35 @@ $json_data = file_get_contents($url);
 $url=json_decode($json_data,1);
 $diterima = $url['response'];
 if($message['type']=='text'){
-	
-	if($pesan_datang =='oi'){
-		$balas = array(
-			'UserID' => $profil->userId,
-			'replyToken' => $replyToken,														
-			'messages' => array(
-				array(
-						'type' => 'text',					
-						'text' => $profil->displayName.'ngapo manggil aku?'
-					)
-			)
-		);
-	}
-
 	if($url['result'] == 404){
 		$balas = array(
 							'UserID' => $profil->userId,	
-                                                        'replyToken' => $replyToken,													
+                            'replyToken' => $replyToken,													
 							'messages' => array(
 								array(
 										'type' => 'text',					
-										'text' => 'Ngomong apo kau ni'
+										'text' => 'Lagi main tenis nih'
 									)
 							)
 						);
-				
 	}
 	else if($url['result'] != 100){
-		
-		
 		$balas = array(
 							'UserID' => $profil->userId,
-                                                        'replyToken' => $replyToken,														
+                            'replyToken' => $replyToken,														
 							'messages' => array(
 								array(
 										'type' => 'text',					
-										'text' => 'Hallo '.$profil->displayName
+										//'text' => 'Hallo '.$profil->displayName
 									)
 							)
 						);
-				
 	}
 
 	else{
 		$balas = array(
 							'UserID' => $profil->userId,
-                                                        'replyToken' => $replyToken,														
+                            'replyToken' => $replyToken,														
 							'messages' => array(
 								array(
 										'type' => 'text',					
@@ -93,7 +76,6 @@ if($message['type']=='text'){
 									)
 							)
 						);
-						
 	}
 }
  
